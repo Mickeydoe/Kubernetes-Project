@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newserver
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: newserver
+  template:
+    metadata:
+      labels:
+        app: newserver
+    spec:
+      containers:
+      - name: newserver
+        image: mickeydoe/mike_portfolio:v2.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
