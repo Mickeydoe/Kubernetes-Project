@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marketingserver
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: marketingserver
+  template:
+    metadata:
+      labels:
+        app: marketingserver
+    spec:
+      containers:
+      - name: marketingserver
+        image: mickeydoe/marketingwebsite
+        resources:
+        ports:
+        - containerPort: 80
