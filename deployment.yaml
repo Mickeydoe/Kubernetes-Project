@@ -1,11 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+<<<<<<< HEAD
   name: newserver
+=======
+  name: marketingserver
+>>>>>>> master
 spec:
   replicas: 5
   selector:
     matchLabels:
+<<<<<<< HEAD
       app: newserver
   template:
     metadata:
@@ -19,5 +24,17 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
+=======
+      app: marketingserver
+  template:
+    metadata:
+      labels:
+        app: marketingserver
+    spec:
+      containers:
+      - name: marketingserver
+        image: mickeydoe/marketingwebsite
+        resources:
+>>>>>>> master
         ports:
         - containerPort: 80
